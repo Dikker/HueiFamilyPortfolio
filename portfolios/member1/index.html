@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Portfolio - Pierre Sanjur R. Conde</title>
+    <!-- Retro Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Shared Theme CSS -->
+    <link rel="stylesheet" href="../../css/arcade-theme.css">
+</head>
+<body>
+    <!-- Top Bar with "Leave Game" Button -->
+    <header class="portfolio-header">
+        <h1 style="font-size: 0.9rem; color: var(--neon-yellow);">P1 // CONDE, PIERRE</h1>
+        <button class="exit-game-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> LEAVE GAME
+        </button>
+    </header>
+
+    <main style="max-width: 1000px; margin: 30px auto; padding: 0 20px;">
+        <!-- 1. Home Section[cite: 1] -->
+        <section id="home" class="arcade-panel">
+            <h2 class="arcade-title"><i class="fa-solid fa-house"></i> HOME PAGE</h2>
+            <p style="font-family: var(--font-retro); font-size: 1.4rem; color: var(--text-muted);">
+                Welcome to my developer profile. Ready to explore system architectures and project missions.
+            </p>
+        </section>
+
+        <!-- 2. About Me Section[cite: 1] -->
+        <section id="about" class="arcade-panel">
+            <h2 class="arcade-title"><i class="fa-solid fa-user"></i> ABOUT ME</h2>
+            <p style="font-family: var(--font-retro); font-size: 1.3rem;">Course: BSIT - Web & Mobile Applications</p>
+            <p style="font-family: var(--font-retro); font-size: 1.3rem;">Specialization: Lead Architecture & Logic</p>
+        </section>
+
+        <!-- 3. Projects Section (Min. 3 Projects)[cite: 1] -->
+        <section id="projects" class="arcade-panel">
+            <h2 class="arcade-title"><i class="fa-solid fa-folder-open"></i> PROJECTS / PORTFOLIO</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px;" class="interactive-card">
+                    <h3 style="font-size: 0.8rem; color: var(--neon-blue);">PROJECT 01</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; margin-top: 5px;">E-Commerce Platform</p>
+                </div>
+                <div style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px;" class="interactive-card">
+                    <h3 style="font-size: 0.8rem; color: var(--neon-blue);">PROJECT 02</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; margin-top: 5px;">Task Management App</p>
+                </div>
+                <div style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px;" class="interactive-card">
+                    <h3 style="font-size: 0.8rem; color: var(--neon-blue);">PROJECT 03</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; margin-top: 5px;">Central Arcade Selection</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section with JS Validation[cite: 1] -->
+        <section id="contact" class="arcade-panel">
+            <h2 class="arcade-title"><i class="fa-solid fa-envelope"></i> CONTACT PAGE</h2>
+            <form id="contact-form" class="arcade-form" novalidate>
+                <div class="form-group">
+                    <label for="contact-name">PLAYER NAME</label>
+                    <input type="text" id="contact-name" class="arcade-input" placeholder="Enter your name">
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">PLAYER EMAIL</label>
+                    <input type="email" id="contact-email" class="arcade-input" placeholder="Enter your email">
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">TRANSMISSION MESSAGE</label>
+                    <textarea id="contact-message" class="arcade-input" rows="4" placeholder="Enter message..."></textarea>
+                    <span class="error-message"></span>
+                </div>
+                <button type="submit" class="exit-game-btn" style="background: var(--neon-green); box-shadow: 0 4px 0 #1b7a43;">
+                    <i class="fa-solid fa-paper-plane"></i> SEND TRANSMISSION
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Import Portfolio UI Handler Module -->
+    <script type="module">
+        import { PortfolioUI } from '../../js/classes/PortfolioUI.js';
+        document.addEventListener("DOMContentLoaded", () => {
+            new PortfolioUI("../../index.html");
+        });
+    </script>
+</body>
+</html>

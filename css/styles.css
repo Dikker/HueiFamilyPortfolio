@@ -1,0 +1,330 @@
+:root {
+    --bg-dark: #0a0a0f;
+    --panel-bg: #141420;
+    --border-gold: #f39c12;
+    --border-metal: #4a4d52;
+    --neon-yellow: #f1c40f;
+    --neon-red: #e74c3c;
+    --neon-blue: #3498db;
+    --neon-green: #2ecc71;
+    --text-main: #ffffff;
+    --font-arcade: 'Press Start 2P', monospace;
+    --font-retro: 'VT323', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-arcade);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* CRT Overlay Effect */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Main Cabinet Container */
+.arcade-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--panel-bg);
+    border: 6px solid var(--border-gold);
+    box-shadow: 0 0 30px rgba(243, 156, 18, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+}
+
+/* Header */
+.arcade-header {
+    text-align: center;
+    border-bottom: 4px dashed var(--border-metal);
+    padding-bottom: 15px;
+}
+
+.blink-title {
+    color: var(--neon-yellow);
+    font-size: 1.6rem;
+    text-shadow: 3px 3px 0px #000, 0 0 10px var(--neon-yellow);
+    animation: blinkText 1.5s infinite;
+}
+
+.subtitle {
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+    color: var(--neon-blue);
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+/* 5-Column Grid */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.character-card {
+    background: #1c1d2a;
+    border: 4px solid var(--border-metal);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.character-card .p1-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--neon-red);
+    color: #fff;
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    border: 2px solid #fff;
+    display: none;
+    box-shadow: 0 0 10px var(--neon-red);
+}
+
+.character-card.active {
+    border-color: var(--neon-yellow);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 20px var(--neon-yellow);
+    background: #282a3d;
+}
+
+.character-card.active .p1-badge {
+    display: block;
+}
+
+.avatar-frame {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: #000;
+    border: 2px solid var(--border-metal);
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(80%);
+    transition: filter 0.2s ease;
+}
+
+.character-card.active .avatar-frame img {
+    filter: grayscale(0%);
+}
+
+.card-name {
+    font-size: 0.65rem;
+    color: #fff;
+    line-height: 1.3;
+    min-height: 2.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Selected Detail Panel */
+.character-detail-panel {
+    background: #0f1017;
+    border: 4px solid var(--border-metal);
+    padding: 20px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid var(--border-metal);
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.p1-indicator {
+    background: var(--neon-red);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border: 2px solid #fff;
+}
+
+#selected-name {
+    font-size: 1.1rem;
+    color: var(--neon-yellow);
+    flex-grow: 1;
+}
+
+.role-badge {
+    font-size: 0.65rem;
+    background: var(--neon-blue);
+    padding: 6px 12px;
+    border-radius: 2px;
+}
+
+.panel-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.stats-container {
+    font-family: var(--font-retro);
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    background: #181925;
+    padding: 6px 12px;
+    border-left: 4px solid var(--neon-blue);
+}
+
+.bar-container {
+    width: 50%;
+    background: #333;
+    height: 16px;
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-yellow), var(--neon-green));
+    transition: width 0.3s ease;
+}
+
+.arcade-btn {
+    width: 100%;
+    height: 100%;
+    min-height: 60px;
+    background: var(--neon-red);
+    color: #fff;
+    font-family: var(--font-arcade);
+    font-size: 0.85rem;
+    border: 4px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #8b0000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.arcade-btn:hover {
+    background: #ff5252;
+}
+
+.arcade-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #8b0000;
+}
+
+/* Keyframe Animations */
+@keyframes blinkText {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.mission-start-overlay {
+    animation: flashScreen 0.5s infinite;
+}
+
+@keyframes flashScreen {
+    0% { background-color: var(--bg-dark); }
+    50% { background-color: var(--neon-yellow); }
+    100% { background-color: var(--bg-dark); }
+}
+
+/* Responsive Scaling */
+@media (max-width: 900px) {
+    .character-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .panel-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .character-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Arcade Transition Effects for Polymorphism --- */
+
+/* Lead Student: Mission Start Flashing */
+/* .mission-start-overlay {
+    animation: flashArcade 0.15s infinite;
+}
+
+@keyframes flashArcade {
+    0% { background-color: var(--bg-dark); }
+    50% { background-color: var(--neon-yellow); }
+    100% { background-color: var(--bg-dark); }
+} */
+
+/* Developer Student: Cyber Glitch & Screen Shake */
+/* .cyber-glitch-transition {
+    animation: screenShake 0.1s infinite, glitchPulse 0.4s ease-in-out;
+}
+
+@keyframes screenShake {
+    0% { transform: translate(2px, 1px) rotate(0deg); }
+    20% { transform: translate(-1px, -2px) rotate(-1deg); }
+    40% { transform: translate(-3px, 0px) rotate(1deg); }
+    60% { transform: translate(0px, 2px) rotate(0deg); }
+    80% { transform: translate(1px, -1px) rotate(1deg); }
+    100% { transform: translate(-1px, 2px) rotate(-1deg); }
+}
+
+@keyframes glitchPulse {
+    0% { filter: hue-rotate(0deg) contrast(100%); }
+    50% { filter: hue-rotate(180deg) contrast(200%); }
+    100% { filter: hue-rotate(360deg) contrast(100%); }
+} */
+
+/* Designer Student: CRT Warp & Zoom */
+/* .design-warp-transition {
+    animation: crtWarp 0.4s forwards ease-in-out;
+}
+
+@keyframes crtWarp {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.8) drop-shadow(0 0 15px var(--neon-blue)); }
+    100% { transform: scale(0.95); filter: brightness(0.5); }
+} */

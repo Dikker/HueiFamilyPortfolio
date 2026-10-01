@@ -1,0 +1,163 @@
+:root {
+    --bg-dark: #0a0a0f;
+    --panel-bg: #141420;
+    --panel-inner: #1c1d2a;
+    --border-gold: #f39c12;
+    --border-metal: #4a4d52;
+    --neon-yellow: #f1c40f;
+    --neon-red: #e74c3c;
+    --neon-blue: #3498db;
+    --neon-green: #2ecc71;
+    --text-main: #ffffff;
+    --text-muted: #a0a0b0;
+    --font-arcade: 'Press Start 2P', monospace;
+    --font-retro: 'VT323', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-arcade);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* CRT Screen Effect Overlay */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Header & Top Navigation Bar */
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--panel-bg);
+    border-bottom: 4px solid var(--border-gold);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Exit / Leave Game Button */
+.exit-game-btn {
+    background: var(--neon-red);
+    color: #ffffff;
+    font-family: var(--font-arcade);
+    font-size: 0.75rem;
+    padding: 10px 16px;
+    border: 3px solid #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #8b0000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.exit-game-btn:hover {
+    background: #ff5252;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.5);
+}
+
+.exit-game-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #8b0000;
+}
+
+/* Shared Reusable Arcade Panels */
+.arcade-panel {
+    background: var(--panel-bg);
+    border: 4px solid var(--border-metal);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.arcade-title {
+    color: var(--neon-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0px #000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Shared Form Controls for Contact Validation */
+.arcade-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.7rem;
+    color: var(--neon-blue);
+}
+
+.arcade-input {
+    background: var(--panel-inner);
+    border: 2px solid var(--border-metal);
+    color: #ffffff;
+    font-family: var(--font-retro);
+    font-size: 1.2rem;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.arcade-input:focus {
+    border-color: var(--neon-yellow);
+}
+
+.error-message {
+    color: var(--neon-red);
+    font-size: 0.6rem;
+    display: none;
+}
+
+.form-group.invalid .arcade-input {
+    border-color: var(--neon-red);
+}
+
+.form-group.invalid .error-message {
+    display: block;
+}
+
+/* Exit Transition Fade Out */
+.arcade-exit-fade {
+    animation: exitFade 0.5s forwards ease-in-out;
+}
+
+@keyframes exitFade {
+    0% { opacity: 1; filter: brightness(1); }
+    50% { filter: brightness(2) contrast(200%); }
+    100% { opacity: 0; filter: brightness(0); }
+}
