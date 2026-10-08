@@ -83,9 +83,10 @@ export class PortfolioUI {
     }
 
     bindHoverSounds() {
-        const interactiveElems = document.querySelectorAll("button, a, .interactive-card, input, textarea");
+        const interactiveElems = document.querySelectorAll("button, a, .interactive-card, .profile-frame, input, textarea");
         interactiveElems.forEach(elem => {
             elem.addEventListener("mouseenter", () => this.playHoverSFX());
+            elem.addEventListener("click", () => this.playHoverSFX());
         });
     }
 
