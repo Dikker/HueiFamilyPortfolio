@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evan Dizon - Cyber Terminal Portfolio</title>
-    <!-- Retro Fonts & Icons -->
+    <title>Evan Daniel Dizon - Cyber Terminal Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -12,6 +11,26 @@
     <link rel="stylesheet" href="../../css/arcade-theme.css">
 
     <style>
+        #gundam-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background-color: #0a0a2a;
+        }
+
+        body {
+            background-color: transparent !important; 
+        }
+
+        .portfolio-header, main, .terminal-header, .arcade-panel {
+            position: relative;
+            z-index: 1;
+        }
+
         .terminal-header {
             background: #0f1017;
             border: 2px solid var(--neon-deep-blue);
@@ -27,7 +46,7 @@
 
         .hero-layout {
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 25px;
             align-items: center;
         }
@@ -35,15 +54,11 @@
         .profile-frame {
             background: #141420;
             width: 100%;
+            height: 100%;
             aspect-ratio: 1/1;
             overflow: hidden;
             position: relative;
-        }
-
-        profile-frame {
             perspective: 1200px;
-            width: 320px;
-            height: 320px;
             cursor: pointer;
         }
 
@@ -54,7 +69,7 @@
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1), border-color 0.8s ease;
             transform-style: preserve-3d;
             border: 6px solid var(--neon-deep-blue);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(135, 206, 235, 0.4);
         }
 
         .profile-frame.flipped .flipper {
@@ -110,7 +125,7 @@
         .nav-tab-btn:hover, .nav-tab-btn.active {
             border-color: var(--neon-deep-blue);
             color: var(--neon-deep-blue);
-            box-shadow: 0 0 10px rgba(138, 0, 196, 0.3);
+            box-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
         }
 
         .quest-grid {
@@ -134,7 +149,7 @@
 
         .quest-tag {
             font-size: 0.6rem;
-            background: rgba(138, 0, 196, 0.2);
+            background: rgba(135, 206, 235, 0.2);
             color: var(--neon-deep-blue);
             padding: 4px 8px;
             border: 1px solid var(--neon-deep-blue);
@@ -155,7 +170,7 @@
             background: #12131c;
             border: 1px solid var(--border-metal);
             padding: 4px 10px;
-            color: var(--neon-blue);
+            color: var(--neon-deep-blue);
         }
 
         @media (max-width: 768px) {
@@ -170,9 +185,10 @@
         }
     </style>
 </head>
-<body>
+<body class="theme-skyblue">
 
-    <!-- Header Navigation Bar -->
+    <canvas id="gundam-bg-canvas"></canvas>
+
     <header class="portfolio-header">
         <h1 style="font-size: 0.85rem; color: var(--neon-deep-blue);">P2 // DIZON, EVAN DANIEL S.</h1>
         <button class="exit-game-btn">
@@ -180,15 +196,12 @@
         </button>
     </header>
 
-    <main style="max-width: 1050px; margin: 30px auto; padding: 0 20px;">
-
-        <!-- Terminal Status Bar -->
+    <main style="max-width: 1050px; margin: 30px auto; padding: 0 20px; position: relative; z-index: 1;">
         <div class="terminal-header">
             <span><i class="fa-solid fa-terminal"></i> SYSTEM STATUS: ONLINE</span>
-            <span>ROLE: UI/UX & LOGIC</span>
+            <span>ROLE: FRONTEND DEVELOPER</span>
         </div>
 
-        <!-- Quick Jump Module Tabs -->
         <nav class="nav-tabs">
             <a href="#home" class="nav-tab-btn active"><i class="fa-solid fa-house"></i> 01_HOME</a>
             <a href="#about" class="nav-tab-btn"><i class="fa-solid fa-user"></i> 02_ABOUT</a>
@@ -197,225 +210,145 @@
             <a href="#contact" class="nav-tab-btn"><i class="fa-solid fa-envelope"></i> 05_COMMS</a>
         </nav>
 
-        <!-- 1. Home Section -->
         <section id="home" class="arcade-panel">
             <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
             <div class="hero-layout">
                 <div class="profile-frame" id="profile-container">
-                    <!-- Replace with path to your avatar/photo -->
                      <div class="flipper" id="cardFlipper">
                         <div class="front">
-                            <img src="../../assets/images/inner-pic/inner_evan.png"
-                            alt="Evan Dizon"
-                            onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=EVAN'">
+                            <img src="../../assets/images/inner-pic/inner_evan.jpg" alt="Evan Dizon" onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=EVAN'">
                         </div>
-
                         <div class="back">
-                            <img src="../../assets/video/inner-gif/evan_gundam.gif"
-                            alt="8-Bit Gundum Animation"
-                            onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=GUNDAM'">
+                            <img src="../../assets/video/inner-gif/evan_gundam.gif" alt="8-Bit Gundam Animation" onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=GUNDAM'">
                         </div>
                     </div>
                 </div>
                 <div>
                     <h3 style="font-size: 1.1rem; color: var(--neon-yellow); margin-bottom: 12px;">WELCOME, PLAYER 2!</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.4rem; color: var(--text-muted); line-height: 1.5; text-align: justify;">
-                        <!-- PLACEHOLDER: Insert your personal welcome message here -->
-                        Hey there! I'm Luis, a BSIT student at National University specializing in Mobile & Web Applications. I'm a natural problem-solver who relies on strong critical thinking and meticulous organization to bring ideas to life. Driven by resilience and a perfectionist's eye for detail, I’m always ready to turn tough challenges into seamless digital experiences.
+                        Welcome to my developer profile. I am Evan, a developer passionate about building interactive and dynamic web experiences. I enjoy tackling complex logic problems and creating clean, efficient code.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. About Me Section -->
         <section id="about" class="arcade-panel">
             <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-user-gear"></i> CHARACTER SPECS & BIO</h2>
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
-                    <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 5px;">PERSONAL INFORMATION</h3>
+                    <h3 style="font-size: 0.8rem; color: var(--neon-deep-blue); margin-bottom: 5px;">PERSONAL INFORMATION</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.3rem;">
-                        <!-- PLACEHOLDER: Personal Info -->
-                        <strong>Name:</strong> Evan Daniel S. Dizon<br>
+                        <strong>Name:</strong> Dizon, Evan Daniel S.<br>
                         <strong>Location:</strong> Philippines<br>
                         <strong>Focus:</strong> Mobile & Web Applications Development
                     </p>
                 </div>
-
                 <div style="border-top: 2px dashed var(--border-metal); padding-top: 15px;">
-                    <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 5px;">EDUCATIONAL BACKGROUND</h3>
+                    <h3 style="font-size: 0.8rem; color: var(--neon-deep-blue); margin-bottom: 5px;">EDUCATIONAL BACKGROUND</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.3rem;">
-                        <!-- PLACEHOLDER: Educational details -->
                         <strong>Degree:</strong> BS in Information Technology - Specialization in Mobile & Web Applications<br>
                         <strong>Institution:</strong> National University Manila
                     </p>
                 </div>
-
                 <div style="border-top: 2px dashed var(--border-metal); padding-top: 15px;">
-                    <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 8px;">SKILLS & INVENTORY</h3>
+                    <h3 style="font-size: 0.8rem; color: var(--neon-deep-blue); margin-bottom: 8px;">SKILLS & INVENTORY</h3>
                     <div class="badge-list">
-                        <!-- PLACEHOLDER: Customize your tech stack badges -->
                         <span class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
                         <span class="skill-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
                         <span class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript (OOP)</span>
-                        <span class="skill-badge"><i class="fa-brands fa-java"></i> Java</span>
+                        <span class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                        <span class="skill-badge"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. Projects Section (At least 3 required) -->
         <section id="projects" class="arcade-panel">
             <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-trophy"></i> COMPLETED MISSIONS / PROJECTS</h2>
             <div class="quest-grid">
-                
-                <!-- Project 1 -->
                 <div class="quest-card interactive-card">
                     <span class="quest-tag">MISSION 01</span>
-                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">Forecasting Website</h3>
-                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 1 Description -->
-                        A responsive web application built with HTML, CSS, and JavaScript that fetches and displays real-time weather data via a third-party API, demonstrating proficiency in asynchronous programming and front-end development.
-                    </p>
-                    <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: HTML / CSS / JavaScript</span>
+                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">[PROJECT TITLE 1]</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">[INSERT PROJECT 1 DESCRIPTION: e.g., "A web application built using HTML, CSS, and JavaScript featuring dynamic DOM manipulation."]</p>
+                    <span style="font-size: 0.6rem; color: var(--neon-deep-blue);">TECH: HTML5 / CSS3 / JS</span>
                 </div>
-
-                <!-- Project 2 -->
                 <div class="quest-card interactive-card">
                     <span class="quest-tag">MISSION 02</span>
-                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">Ponggal System</h3>
-                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 2 Description -->
-                        A desktop-based Point of Sale (POS) system developed in Java using Apache NetBeans and powered by a PostgreSQL database, demonstrating proficiency in database management and desktop application development for Ponggal Kitchen.
-                    </p>
-                    <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: Java / PostgreSQL</span>
+                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">[PROJECT TITLE 2]</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">[INSERT PROJECT 2 DESCRIPTION: e.g., "An interactive Object-Oriented JavaScript system demonstrating class inheritance and encapsulation."]</p>
+                    <span style="font-size: 0.6rem; color: var(--neon-deep-blue);">TECH: JS OOP / ES Modules</span>
                 </div>
-
-                <!-- Project 3 -->
                 <div class="quest-card interactive-card">
                     <span class="quest-tag">MISSION 03</span>
-                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">UAAP Marketplace</h3>
-                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 3 Description -->
-                        A conceptual prototype mobile application built with Flutter and Supabase for UAAP merchandise, featuring a multi-vendor marketplace, user control, and a simulated ordering workflow (designed for demonstration purposes only, non-deployable).
-                    </p>
-                    <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: Flutter-Dart / Supabase</span>
+                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">[PROJECT TITLE 3]</h3>
+                    <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">[INSERT PROJECT 3 DESCRIPTION: e.g., "Central Arcade Character Selection Hub created for Integrative Programming final project."]</p>
+                    <span style="font-size: 0.6rem; color: var(--neon-deep-blue);">TECH: HTML / CSS Grid / JS Class Engine</span>
                 </div>
-
             </div>
         </section>
 
-    <!-- 04. Self-Introduction Video Section -->
-    <section id="video-intro" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
-        <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
-            Watch the personal transmission playback introducing Evan's developer journey and goals.
-        </p>
-
-        <!-- Retro CRT Video Player Frame -->
-        <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-blue); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
-            
-            <!-- preload="auto" forces the browser to load the video data in advance for instant playback -->
-            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/intro-thumbnail.jpg">
-                <source src="../../assets/video/intro/intro_vid_evan.mp4" type="video/mp4">
-                Your browser does not support the video tag or the transmission format.
-            </video>
-
-        </div>
-    </section>
-
-    <!-- 05. Comms & Contact Me Section -->
-    <section id="contact" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
-        <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
-            Establish a direct connection via social frequencies or send a transmission through the validated comms form below.
-        </p>
-
-        <!-- Social Channels Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-bottom: 25px;">
-            
-            <!-- GitHub Frequency -->
-            <a href="https://github.com/luis-mtp" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-brands fa-github" style="font-size: 1.6rem; color: var(--neon-yellow); flex-shrink: 0;"></i>
-                <div style="min-width: 0; overflow: hidden;">
-                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">GITHUB</h4>
-                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@luis-mtp</p>
-                </div>
-            </a>
-
-            <!-- Facebook Frequency -->
-            <a href="https://www.facebook.com/cookietrashh/" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-brands fa-facebook" style="font-size: 1.6rem; color: #1877f2; flex-shrink: 0;"></i>
-                <div style="min-width: 0; overflow: hidden;">
-                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">FACEBOOK</h4>
-                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@Luis Penabella</p>
-                </div>
-            </a>
-
-            <!-- Instagram Frequency -->
-            <a href="https://www.instagram.com/luweeez_/" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-brands fa-instagram" style="font-size: 1.6rem; color: var(--neon-red); flex-shrink: 0;"></i>
-                <div style="min-width: 0; overflow: hidden;">
-                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">INSTAGRAM</h4>
-                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@luweeez_</p>
-                </div>
-            </a>
-
-            <!-- Direct Email Frequency -->
-            <a href="mailto:penabella.luismartin@gmail.com" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-blue); flex-shrink: 0;"></i>
-                <div style="min-width: 0; overflow: hidden;">
-                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">DIRECT EMAIL</h4>
-                    <p style="font-family: var(--font-retro); font-size: 0.95rem; color: var(--text-muted); word-break: break-all;">penabella.luismartin@gmail.com</p>
-                </div>
-            </a>
-
-        </div>
-
-        <!-- Comms Transmission Form -->
-        <div style="border-top: 2px dashed var(--border-metal); padding-top: 20px;">
-            <h3 style="font-size: 0.75rem; color: var(--neon-yellow); margin-bottom: 15px;"><i class="fa-solid fa-paper-plane"></i> DIRECT TRANSMISSION FORM</h3>
-            <form id="contact-form" class="arcade-form" novalidate>
-                <div class="form-group">
-                    <label for="contact-name"><i class="fa-solid fa-user"></i> CALLSIGN / PLAYER NAME</label>
-                    <input type="text" id="contact-name" class="arcade-input" placeholder="Enter your full name">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="contact-email"><i class="fa-solid fa-at"></i> FREQUENCY / EMAIL ADDRESS</label>
-                    <input type="email" id="contact-email" class="arcade-input" placeholder="Enter your email address">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                <label for="contact-message"><i class="fa-solid fa-comment-dots"></i> TRANSMISSION DATA</label>
-                <textarea id="contact-message" class="arcade-input" rows="4" placeholder="Type your message here..." style="resize: vertical; max-width: 100%; width: 100%;"></textarea>
-                <span class="error-message"></span>
+        <section id="video-intro" class="arcade-panel">
+            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
+            <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">Watch the personal transmission playback introducing Evan's developer journey and goals.</p>
+            <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-blue); box-shadow: 0 0 15px rgba(138, 0, 196, 0.3); padding: 10px; border-radius: 4px;">
+                <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/evan_thumbnail.jpg">
+                    <source src="../../assets/video/intro/intro_vid_evan.mp4" type="video/mp4">
+                    Your browser does not support the video tag or the transmission format.
+                </video>
             </div>
+        </section>
 
-                <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-blue); box-shadow: 0 4px 0 #5a0080; width: max-content;">
-                    <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
-                </button>
-            </form>
-        </div>
-    </section>
-
+        <section id="contact" class="arcade-panel">
+            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
+            <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">Establish a direct connection via social frequencies or send a transmission through the validated comms form below.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                <a href="#" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                    <i class="fa-brands fa-github" style="font-size: 1.6rem; color: var(--neon-yellow); flex-shrink: 0;"></i>
+                    <div style="min-width: 0; overflow: hidden;"><h4 style="font-size: 0.65rem; color: var(--neon-deep-blue);">GITHUB</h4><p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@evan_dizon</p></div>
+                </a>
+                <a href="#" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                    <i class="fa-brands fa-facebook" style="font-size: 1.6rem; color: #1877f2; flex-shrink: 0;"></i>
+                    <div style="min-width: 0; overflow: hidden;"><h4 style="font-size: 0.65rem; color: var(--neon-deep-blue);">FACEBOOK</h4><p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">Evan Dizon</p></div>
+                </a>
+                <a href="#" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                    <i class="fa-brands fa-instagram" style="font-size: 1.6rem; color: var(--neon-red); flex-shrink: 0;"></i>
+                    <div style="min-width: 0; overflow: hidden;"><h4 style="font-size: 0.65rem; color: var(--neon-deep-blue);">INSTAGRAM</h4><p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@evan_dizon</p></div>
+                </a>
+                <a href="mailto:evan@example.com" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                    <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-blue); flex-shrink: 0;"></i>
+                    <div style="min-width: 0; overflow: hidden;"><h4 style="font-size: 0.65rem; color: var(--neon-deep-blue);">DIRECT EMAIL</h4><p style="font-family: var(--font-retro); font-size: 0.95rem; color: var(--text-muted); word-break: break-all;">evan@example.com</p></div>
+                </a>
+            </div>
+            <div style="border-top: 2px dashed var(--border-metal); padding-top: 20px;">
+                <h3 style="font-size: 0.75rem; color: var(--neon-yellow); margin-bottom: 15px;"><i class="fa-solid fa-paper-plane"></i> DIRECT TRANSMISSION FORM</h3>
+                <form id="contact-form" class="arcade-form" novalidate>
+                    <div class="form-group">
+                        <label for="contact-name"><i class="fa-solid fa-user"></i> CALLSIGN / PLAYER NAME</label>
+                        <input type="text" id="contact-name" class="arcade-input" placeholder="Enter your full name"><span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email"><i class="fa-solid fa-at"></i> FREQUENCY / EMAIL ADDRESS</label>
+                        <input type="email" id="contact-email" class="arcade-input" placeholder="Enter your email address"><span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message"><i class="fa-solid fa-comment-dots"></i> TRANSMISSION DATA</label>
+                        <textarea id="contact-message" class="arcade-input" rows="4" placeholder="Type your message here..." style="resize: vertical; max-width: 100%; width: 100%;"></textarea><span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-blue); box-shadow: 0 4px 0 #5a0080; width: max-content;">
+                        <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <!-- Import Portfolio UI Handler Module -->
+    <script src="gundam-background.js"></script>
     <script type="module">
         import { PortfolioUI } from '../../js/classes/PortfolioUI.js';
-        document.addEventListener("DOMContentLoaded", () => {
-            new PortfolioUI("../../index.html");
-        });
-
+        document.addEventListener("DOMContentLoaded", () => { new PortfolioUI("../../index.html"); });
         document.addEventListener('DOMContentLoaded', () => {
             const flipContainer = document.getElementById('profile-container');
-            const backVideo = document.getElementById('back-gif');
-
-            flipContainer.addEventListener('click', () => {
-                flipContainer.classList.toggle('flipped');
-            });
+            flipContainer.addEventListener('click', () => { flipContainer.classList.toggle('flipped'); });
         });
     </script>
 </body>

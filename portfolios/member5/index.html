@@ -12,12 +12,35 @@
     <link rel="stylesheet" href="../../css/arcade-theme.css">
 
     <style>
+        /* --- Sonic Background Canvas --- */
+        #sonic-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0; /* Sits behind the content */
+            pointer-events: none; /* Prevents it from blocking clicks */
+            background-color: #87CEEB; /* Classic Sonic sky blue */
+        }
+
+        /* Ensure the body is transparent so the canvas shows through */
+        body {
+            background-color: transparent !important; 
+        }
+
+        /* Ensure all your content sits above the canvas */
+        .portfolio-header, main, .terminal-header, .arcade-panel {
+            position: relative;
+            z-index: 1;
+        }
+
         .terminal-header {
             background: #0f1017;
-            border: 2px solid var(--neon-deep-red);
+            border: 2px solid var(--neon-deep-blue);
             padding: 10px 15px;
             font-family: var(--font-retro);
-            color: var(--neon-deep-red);
+            color: var(--neon-deep-blue);
             font-size: 1.2rem;
             margin-bottom: 25px;
             display: flex;
@@ -27,7 +50,7 @@
 
         .hero-layout {
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 25px;
             align-items: center;
         }
@@ -35,15 +58,11 @@
         .profile-frame {
             background: #141420;
             width: 100%;
+            height: 100%;
             aspect-ratio: 1/1;
             overflow: hidden;
             position: relative;
-        }
-
-        profile-frame {
             perspective: 1200px;
-            width: 320px;
-            height: 320px;
             cursor: pointer;
         }
 
@@ -53,7 +72,7 @@
             position: relative;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1), border-color 0.8s ease;
             transform-style: preserve-3d;
-            border: 6px solid var(--neon-deep-red);
+            border: 6px solid var(--neon-deep-blue);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
         }
 
@@ -108,8 +127,8 @@
         }
 
         .nav-tab-btn:hover, .nav-tab-btn.active {
-            border-color: var(--neon-deep-red);
-            color: var(--neon-deep-red);
+            border-color: var(--neon-deep-blue);
+            color: var(--neon-deep-blue);
             box-shadow: 0 0 10px rgba(138, 0, 196, 0.3);
         }
 
@@ -128,16 +147,16 @@
         }
 
         .quest-card:hover {
-            border-color: var(--neon-deep-red);
+            border-color: var(--neon-deep-blue);
             transform: translateY(-4px);
         }
 
         .quest-tag {
             font-size: 0.6rem;
             background: rgba(138, 0, 196, 0.2);
-            color: var(--neon-deep-red);
+            color: var(--neon-deep-blue);
             padding: 4px 8px;
-            border: 1px solid var(--neon-deep-red);
+            border: 1px solid var(--neon-deep-blue);
             display: inline-block;
             margin-bottom: 10px;
         }
@@ -172,15 +191,18 @@
 </head>
 <body>
 
+    <!-- Sonic 8-bit Background Canvas -->
+    <canvas id="sonic-bg-canvas"></canvas>
+
     <!-- Header Navigation Bar -->
     <header class="portfolio-header">
-        <h1 style="font-size: 0.85rem; color: var(--neon-deep-red);">P5 // PENABELLA, LUIS MARTIN T.</h1>
+        <h1 style="font-size: 0.85rem; color: var(--neon-deep-blue);">P5 // PENABELLA, LUIS MARTIN T.</h1>
         <button class="exit-game-btn">
             <i class="fa-solid fa-right-from-bracket"></i> LEAVE GAME
         </button>
     </header>
 
-    <main style="max-width: 1050px; margin: 30px auto; padding: 0 20px;">
+    <main style="max-width: 1050px; margin: 30px auto; padding: 0 20px; position: relative; z-index: 1;">
 
         <!-- Terminal Status Bar -->
         <div class="terminal-header">
@@ -199,10 +221,9 @@
 
         <!-- 1. Home Section -->
         <section id="home" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
             <div class="hero-layout">
                 <div class="profile-frame" id="profile-container">
-                    <!-- Replace with path to your avatar/photo -->
                      <div class="flipper" id="cardFlipper">
                         <div class="front">
                             <img src="../../assets/images/inner-pic/inner_luis.jpg"
@@ -220,7 +241,6 @@
                 <div>
                     <h3 style="font-size: 1.1rem; color: var(--neon-yellow); margin-bottom: 12px;">WELCOME, PLAYER 5!</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.4rem; color: var(--text-muted); line-height: 1.5; text-align: justify;">
-                        <!-- PLACEHOLDER: Insert your personal welcome message here -->
                         Hey there! I'm Luis, a BSIT student at National University specializing in Mobile & Web Applications. I'm a natural problem-solver who relies on strong critical thinking and meticulous organization to bring ideas to life. Driven by resilience and a perfectionist's eye for detail, I’m always ready to turn tough challenges into seamless digital experiences.
                     </p>
                 </div>
@@ -229,12 +249,11 @@
 
         <!-- 2. About Me Section -->
         <section id="about" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-user-gear"></i> CHARACTER SPECS & BIO</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-user-gear"></i> CHARACTER SPECS & BIO</h2>
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
                     <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 5px;">PERSONAL INFORMATION</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.3rem;">
-                        <!-- PLACEHOLDER: Personal Info -->
                         <strong>Name:</strong> Luis Martin T. Penabella<br>
                         <strong>Location:</strong> Philippines<br>
                         <strong>Focus:</strong> Mobile & Web Applications Development
@@ -244,7 +263,6 @@
                 <div style="border-top: 2px dashed var(--border-metal); padding-top: 15px;">
                     <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 5px;">EDUCATIONAL BACKGROUND</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.3rem;">
-                        <!-- PLACEHOLDER: Educational details -->
                         <strong>Degree:</strong> BS in Information Technology - Specialization in Mobile & Web Applications<br>
                         <strong>Institution:</strong> National University Manila
                     </p>
@@ -253,7 +271,6 @@
                 <div style="border-top: 2px dashed var(--border-metal); padding-top: 15px;">
                     <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 8px;">SKILLS & INVENTORY</h3>
                     <div class="badge-list">
-                        <!-- PLACEHOLDER: Customize your tech stack badges -->
                         <span class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
                         <span class="skill-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
                         <span class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript (OOP)</span>
@@ -269,7 +286,7 @@
 
         <!-- 3. Projects Section (At least 3 required) -->
         <section id="projects" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-trophy"></i> COMPLETED MISSIONS / PROJECTS</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-trophy"></i> COMPLETED MISSIONS / PROJECTS</h2>
             <div class="quest-grid">
                 
                 <!-- Project 1 -->
@@ -277,7 +294,6 @@
                     <span class="quest-tag">MISSION 01</span>
                     <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">Forecasting Website</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 1 Description -->
                         A responsive web application built with HTML, CSS, and JavaScript that fetches and displays real-time weather data via a third-party API, demonstrating proficiency in asynchronous programming and front-end development.
                     </p>
                     <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: HTML / CSS / JavaScript</span>
@@ -288,7 +304,6 @@
                     <span class="quest-tag">MISSION 02</span>
                     <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">Ponggal System</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 2 Description -->
                         A desktop-based Point of Sale (POS) system developed in Java using Apache NetBeans and powered by a PostgreSQL database, demonstrating proficiency in database management and desktop application development for Ponggal Kitchen.
                     </p>
                     <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: Java / PostgreSQL</span>
@@ -299,7 +314,6 @@
                     <span class="quest-tag">MISSION 03</span>
                     <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">UAAP Marketplace</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
-                        <!-- PLACEHOLDER: Project 3 Description -->
                         A conceptual prototype mobile application built with Flutter and Supabase for UAAP merchandise, featuring a multi-vendor marketplace, user control, and a simulated ordering workflow (designed for demonstration purposes only, non-deployable).
                     </p>
                     <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: Flutter-Dart / Supabase</span>
@@ -310,16 +324,15 @@
 
     <!-- 04. Self-Introduction Video Section -->
     <section id="video-intro" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
+        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
         <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
-            Watch the personal transmission playback introducing Luis' developer journey and goals.
+            Watch the personal transmission playback introducing Luis's developer journey and goals.
         </p>
 
         <!-- Retro CRT Video Player Frame -->
-        <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-red); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
+        <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-blue); box-shadow: 0 0 15px rgba(138, 0, 196, 0.3); padding: 10px; border-radius: 4px;">
             
-            <!-- preload="auto" forces the browser to load the video data in advance for instant playback -->
-            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/intro-thumbnail.jpg">
+            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/luis_thumbnail.jpg">
                 <source src="../../assets/video/intro/intro_vid_luis.mp4" type="video/mp4">
                 Your browser does not support the video tag or the transmission format.
             </video>
@@ -329,7 +342,7 @@
 
     <!-- 05. Comms & Contact Me Section -->
     <section id="contact" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
+        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
         <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
             Establish a direct connection via social frequencies or send a transmission through the validated comms form below.
         </p>
@@ -366,7 +379,7 @@
 
             <!-- Direct Email Frequency -->
             <a href="mailto:penabella.luismartin@gmail.com" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-red); flex-shrink: 0;"></i>
+                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-blue); flex-shrink: 0;"></i>
                 <div style="min-width: 0; overflow: hidden;">
                     <h4 style="font-size: 0.65rem; color: var(--neon-blue);">DIRECT EMAIL</h4>
                     <p style="font-family: var(--font-retro); font-size: 0.95rem; color: var(--text-muted); word-break: break-all;">penabella.luismartin@gmail.com</p>
@@ -397,7 +410,7 @@
                 <span class="error-message"></span>
             </div>
 
-                <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-red); box-shadow: 0 4px 0 #5a0080; width: max-content;">
+                <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-blue); box-shadow: 0 4px 0 #5a0080; width: max-content;">
                     <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
                 </button>
             </form>
@@ -405,6 +418,9 @@
     </section>
 
     </main>
+
+    <!-- Sonic 8-bit Background Script -->
+    <script src="sonic-background.js"></script>
 
     <!-- Import Portfolio UI Handler Module -->
     <script type="module">
