@@ -43,7 +43,7 @@ const teamMembers = [
         "Pascua, Benedict T.",
         "BSIT - Web & Mobile",
         "assets/images/pascua.jpg",
-        "./portfolios/pascua/index.html",
+        "./portfolios/member4/index.html",
         defaultProjects,
         { coding: 92, design: 85, logic: 94 }
     ),
