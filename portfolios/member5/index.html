@@ -14,10 +14,10 @@
     <style>
         .terminal-header {
             background: #0f1017;
-            border: 2px solid var(--neon-deep-blue);
+            border: 2px solid var(--neon-deep-red);
             padding: 10px 15px;
             font-family: var(--font-retro);
-            color: var(--neon-deep-blue);
+            color: var(--neon-deep-red);
             font-size: 1.2rem;
             margin-bottom: 25px;
             display: flex;
@@ -53,7 +53,7 @@
             position: relative;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1), border-color 0.8s ease;
             transform-style: preserve-3d;
-            border: 6px solid var(--neon-deep-blue);
+            border: 6px solid var(--neon-deep-red);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
         }
 
@@ -108,8 +108,8 @@
         }
 
         .nav-tab-btn:hover, .nav-tab-btn.active {
-            border-color: var(--neon-deep-blue);
-            color: var(--neon-deep-blue);
+            border-color: var(--neon-deep-red);
+            color: var(--neon-deep-red);
             box-shadow: 0 0 10px rgba(138, 0, 196, 0.3);
         }
 
@@ -128,16 +128,16 @@
         }
 
         .quest-card:hover {
-            border-color: var(--neon-deep-blue);
+            border-color: var(--neon-deep-red);
             transform: translateY(-4px);
         }
 
         .quest-tag {
             font-size: 0.6rem;
             background: rgba(138, 0, 196, 0.2);
-            color: var(--neon-deep-blue);
+            color: var(--neon-deep-red);
             padding: 4px 8px;
-            border: 1px solid var(--neon-deep-blue);
+            border: 1px solid var(--neon-deep-red);
             display: inline-block;
             margin-bottom: 10px;
         }
@@ -174,7 +174,7 @@
 
     <!-- Header Navigation Bar -->
     <header class="portfolio-header">
-        <h1 style="font-size: 0.85rem; color: var(--neon-deep-blue);">P5 // PENABELLA, LUIS MARTIN T.</h1>
+        <h1 style="font-size: 0.85rem; color: var(--neon-deep-red);">P5 // PENABELLA, LUIS MARTIN T.</h1>
         <button class="exit-game-btn">
             <i class="fa-solid fa-right-from-bracket"></i> LEAVE GAME
         </button>
@@ -199,7 +199,7 @@
 
         <!-- 1. Home Section -->
         <section id="home" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
             <div class="hero-layout">
                 <div class="profile-frame" id="profile-container">
                     <!-- Replace with path to your avatar/photo -->
@@ -229,7 +229,7 @@
 
         <!-- 2. About Me Section -->
         <section id="about" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-user-gear"></i> CHARACTER SPECS & BIO</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-user-gear"></i> CHARACTER SPECS & BIO</h2>
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
                     <h3 style="font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 5px;">PERSONAL INFORMATION</h3>
@@ -269,7 +269,7 @@
 
         <!-- 3. Projects Section (At least 3 required) -->
         <section id="projects" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-trophy"></i> COMPLETED MISSIONS / PROJECTS</h2>
+            <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-trophy"></i> COMPLETED MISSIONS / PROJECTS</h2>
             <div class="quest-grid">
                 
                 <!-- Project 1 -->
@@ -310,16 +310,16 @@
 
     <!-- 04. Self-Introduction Video Section -->
     <section id="video-intro" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
+        <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
         <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
-            Watch the personal transmission playback introducing Benedict's developer journey and goals.
+            Watch the personal transmission playback introducing Luis' developer journey and goals.
         </p>
 
         <!-- Retro CRT Video Player Frame -->
-        <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-blue); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
+        <div style="background: var(--panel-inner); border: 3px solid var(--neon-deep-red); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
             
             <!-- preload="auto" forces the browser to load the video data in advance for instant playback -->
-            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/pascua_thumbnail.jpg">
+            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/intro-thumbnail.jpg">
                 <source src="../../assets/video/intro/intro_vid_luis.mp4" type="video/mp4">
                 Your browser does not support the video tag or the transmission format.
             </video>
@@ -329,7 +329,7 @@
 
     <!-- 05. Comms & Contact Me Section -->
     <section id="contact" class="arcade-panel">
-        <h2 class="arcade-title" style="color: var(--neon-deep-blue);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
+        <h2 class="arcade-title" style="color: var(--neon-deep-red);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
         <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
             Establish a direct connection via social frequencies or send a transmission through the validated comms form below.
         </p>
@@ -366,7 +366,7 @@
 
             <!-- Direct Email Frequency -->
             <a href="mailto:penabella.luismartin@gmail.com" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
-                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-blue); flex-shrink: 0;"></i>
+                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-deep-red); flex-shrink: 0;"></i>
                 <div style="min-width: 0; overflow: hidden;">
                     <h4 style="font-size: 0.65rem; color: var(--neon-blue);">DIRECT EMAIL</h4>
                     <p style="font-family: var(--font-retro); font-size: 0.95rem; color: var(--text-muted); word-break: break-all;">penabella.luismartin@gmail.com</p>
@@ -397,7 +397,7 @@
                 <span class="error-message"></span>
             </div>
 
-                <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-blue); box-shadow: 0 4px 0 #5a0080; width: max-content;">
+                <button type="submit" class="exit-game-btn" style="background: var(--neon-deep-red); box-shadow: 0 4px 0 #5a0080; width: max-content;">
                     <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
                 </button>
             </form>
