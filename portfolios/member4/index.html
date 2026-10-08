@@ -33,19 +33,59 @@
         }
 
         .profile-frame {
-            border: 4px solid var(--neon-green);
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
-            background: #000;
+            background: #141420;
             width: 100%;
             aspect-ratio: 1/1;
             overflow: hidden;
             position: relative;
         }
 
+        profile-frame {
+            perspective: 1200px; /* Gives the 3D depth effect */
+            width: 320px;
+            height: 320px;
+            cursor: pointer;
+        }
+
+        .flipper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1), border-color 0.8s ease;
+            transform-style: preserve-3d;
+            border: 6px solid var(--neon-green); /* Blue border by default */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .profile-frame.flipped .flipper {
+            transform: rotateY(180deg);
+            border-color: var(--neon-yellow);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(222, 239, 68, 0.4);
+        }
+
+        .front, .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2d3748;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
         .profile-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none;
         }
 
         .nav-tabs {
@@ -161,9 +201,21 @@
         <section id="home" class="arcade-panel">
             <h2 class="arcade-title" style="color: var(--neon-green);"><i class="fa-solid fa-terminal"></i> INITIALIZING DEVELOPER...</h2>
             <div class="hero-layout">
-                <div class="profile-frame">
+                <div class="profile-frame" id="profile-container">
                     <!-- Replace with path to your avatar/photo -->
-                    <img src="../../assets/images/pascua.jpg" alt="Benedict Pascua" onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=BENEDICT'">
+                     <div class="flipper" id="cardFlipper">
+                        <div class="front">
+                            <img src="../../assets/images/inner-pic/inner_ben.png"
+                            alt="Benedict Pascua"
+                            onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=BENEDICT'">
+                        </div>
+
+                        <div class="back">
+                            <img src="../../assets/video/inner-gif/ben_greninja.gif"
+                            alt="8-Bit Greninja Animation"
+                            onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=GRENINJA'">
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <h3 style="font-size: 1.1rem; color: var(--neon-yellow); margin-bottom: 12px;">WELCOME, PLAYER 4!</h3>
@@ -264,7 +316,7 @@
         <div style="background: var(--panel-inner); border: 3px solid var(--neon-green); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
             
             <!-- preload="auto" forces the browser to load the video data in advance for instant playback -->
-            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/pascua_thumbnail.jpg">
+            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/intro/pascua_thumbnail.jpg">
                 <source src="." type="video/mp4">
                 Your browser does not support the video tag or the transmission format.
             </video>
@@ -356,6 +408,15 @@
         import { PortfolioUI } from '../../js/classes/PortfolioUI.js';
         document.addEventListener("DOMContentLoaded", () => {
             new PortfolioUI("../../index.html");
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const flipContainer = document.getElementById('profile-container');
+            const backVideo = document.getElementById('back-gif');
+
+            flipContainer.addEventListener('click', () => {
+                flipContainer.classList.toggle('flipped');
+            });
         });
     </script>
 </body>
