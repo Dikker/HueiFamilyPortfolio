@@ -31,7 +31,15 @@ export class CharacterSelectionManager {
             card.innerHTML = `
                 <div class="p1-badge">P1</div>
                 <div class="avatar-frame">
-                    <img src="${student.avatarImg}" alt="${student.name}" onerror="this.src='https://via.placeholder.com/150x200/111/fff?text=AVATAR'">
+                    <img src="${student.avatarImg}" alt="${student.name}" class="card-img" onerror="this.src='https://via.placeholder.com/150x200/111/fff?text=AVATAR'">
+                    <video 
+                        src="${student.video || ''}" 
+                        class="card-video hidden" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline>
+                    </video>
                 </div>
                 <div class="card-name">${student.name}</div>
             `;
@@ -53,24 +61,46 @@ export class CharacterSelectionManager {
     updateSelectionUI() {
         const activeStudent = this.students[this.selectedIndex];
 
-        // Highlight Active Card
+        // Toggle Video/Image for selected vs unselected cards
         const cards = this.gridContainer.querySelectorAll(".character-card");
         cards.forEach((card, idx) => {
+            const img = card.querySelector(".card-img");
+            const video = card.querySelector(".card-video");
+
             if (idx === this.selectedIndex) {
+                // ACTIVE: Hide image, show and play video in full color
                 card.classList.add("active");
+
+                if (img) img.classList.add("hidden");
+
+                if (video) {
+                    video.classList.remove("hidden");
+                    video.muted = true;      // Essential for browser autoplay
+                    video.currentTime = 0;   // Play video action from start
+                    video.play().catch(err => console.log("Autoplay waiting for user interaction:", err));
+                }
             } else {
+                // INACTIVE: Pause and hide video, show grayscale static image
                 card.classList.remove("active");
+
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.classList.add("hidden");
+                }
+
+                if (img) img.classList.remove("hidden");
             }
         });
 
         // Update Panel Info using Polymorphic Student Methods
-        this.nameElem.textContent = activeStudent.name;
-        this.roleElem.textContent = activeStudent.role;
-        this.statsElem.innerHTML = activeStudent.renderStats();
+        if (this.nameElem) this.nameElem.textContent = activeStudent.name;
+        if (this.roleElem) this.roleElem.textContent = activeStudent.role;
+        if (this.statsElem) this.statsElem.innerHTML = activeStudent.renderStats();
     }
 
     bindEvents() {
-        // Keyboard Controls (Arrows / A / D / Enter)
+        // Keyboard Navigation (Arrows / A / D / Enter)
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") {
                 this.navigate(1);
@@ -83,9 +113,11 @@ export class CharacterSelectionManager {
         });
 
         // Select Button
-        this.selectBtn.addEventListener("click", () => {
-            this.confirmSelection();
-        });
+        if (this.selectBtn) {
+            this.selectBtn.addEventListener("click", () => {
+                this.confirmSelection();
+            });
+        }
     }
 
     navigate(direction) {
@@ -97,9 +129,6 @@ export class CharacterSelectionManager {
     confirmSelection() {
         this.sfx.playSelectSFX();
         const selectedStudent = this.students[this.selectedIndex];
-        console.log(`${this.selectedIndex}`);
-        
-        // Execute Polymorphic Method
         selectedStudent.openPortfolio();
     }
 }
