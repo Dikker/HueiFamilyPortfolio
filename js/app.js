@@ -54,7 +54,7 @@ const teamMembers = [
         "assets/images/penabella.jpg",
         "./portfolios/member5/index.html",
         defaultProjects,
-        { coding: 88, design: 80, logic: 86 }
+        { coding: 85, design: 80, logic: 95 }
     )
 ];
 
