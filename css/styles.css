@@ -338,3 +338,52 @@ body {
     50% { transform: scale(1.05); filter: brightness(1.8) drop-shadow(0 0 15px var(--neon-blue)); }
     100% { transform: scale(0.95); filter: brightness(0.5); }
 }
+
+/* Utility class to toggle element visibility */
+.hidden {
+    display: none !important;
+}
+
+/* Avatar Frame Container */
+.avatar-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: #000;
+    border: 3px solid #333;
+    overflow: hidden;
+}
+
+.avatar-frame img,
+.avatar-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 1. INACTIVE CHARACTER: Grayscale, static, and stabilized frame */
+.character-card:not(.active) .avatar-frame img {
+    filter: grayscale(100%) contrast(110%) brightness(70%);
+    transition: filter 0.3s ease;
+}
+
+/* Hover Preview: Partial color reveal before clicking */
+.character-card:not(.active):hover .avatar-frame img {
+    filter: grayscale(40%) contrast(100%) brightness(90%);
+}
+
+/* 2. ACTIVE / SELECTED CHARACTER: Full vibrant color + Gold Arcade Glow */
+.character-card.active {
+    border-color: #f1c40f !important;
+    box-shadow: 0 0 18px rgba(241, 196, 15, 0.8), inset 0 0 10px rgba(241, 196, 15, 0.3);
+    transform: scale(1.05);
+}
+
+.character-card.active .avatar-frame {
+    border-color: #f1c40f;
+}
+
+.character-card.active .avatar-frame video {
+    filter: grayscale(0%) brightness(105%) contrast(105%);
+}
