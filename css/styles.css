@@ -288,7 +288,7 @@ body {
 /* --- Arcade Transition Effects for Polymorphism --- */
 
 /* Lead Student: Mission Start Flashing */
-/* .mission-start-overlay {
+.mission-start-overlay {
     animation: flashArcade 0.15s infinite;
 }
 
@@ -296,10 +296,10 @@ body {
     0% { background-color: var(--bg-dark); }
     50% { background-color: var(--neon-yellow); }
     100% { background-color: var(--bg-dark); }
-} */
+} 
 
 /* Developer Student: Cyber Glitch & Screen Shake */
-/* .cyber-glitch-transition {
+.cyber-glitch-transition {
     animation: screenShake 0.1s infinite, glitchPulse 0.4s ease-in-out;
 }
 
@@ -316,10 +316,10 @@ body {
     0% { filter: hue-rotate(0deg) contrast(100%); }
     50% { filter: hue-rotate(180deg) contrast(200%); }
     100% { filter: hue-rotate(360deg) contrast(100%); }
-} */
+}
 
 /* Designer Student: CRT Warp & Zoom */
-/* .design-warp-transition {
+.design-warp-transition {
     animation: crtWarp 0.4s forwards ease-in-out;
 }
 
@@ -327,4 +327,4 @@ body {
     0% { transform: scale(1); filter: brightness(1); }
     50% { transform: scale(1.05); filter: brightness(1.8) drop-shadow(0 0 15px var(--neon-blue)); }
     100% { transform: scale(0.95); filter: brightness(0.5); }
-} */
+}
