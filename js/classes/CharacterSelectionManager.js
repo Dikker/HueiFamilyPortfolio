@@ -97,6 +97,7 @@ export class CharacterSelectionManager {
     confirmSelection() {
         this.sfx.playSelectSFX();
         const selectedStudent = this.students[this.selectedIndex];
+        console.log(`${this.selectedIndex}`);
         
         // Execute Polymorphic Method
         selectedStudent.openPortfolio();
