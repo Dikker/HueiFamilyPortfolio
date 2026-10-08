@@ -12,8 +12,33 @@
     
     <!-- Shared Theme CSS -->
     <link rel="stylesheet" href="../../css/arcade-theme.css">
+
+    <!-- Custom CSS for the 8-bit Background -->
+    <style>
+        body {
+            background-color: transparent; /* Allows the canvas to show through */
+        }
+        #kh-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0; /* Sits behind the content */
+            pointer-events: none; /* Prevents it from blocking clicks */
+            background-color: #0a0a0f; /* Dark base */
+        }
+        /* Ensure the main content sits above the canvas */
+        .portfolio-header, main {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
+    <!-- Kingdom Hearts 8-bit Background Canvas -->
+    <canvas id="kh-bg-canvas"></canvas>
+
     <!-- Top Bar with "Leave Game" Button -->
     <header class="portfolio-header">
         <h1 style="font-size: 0.9rem; color: var(--neon-yellow);">P1 // CONDE, PIERRE</h1>
@@ -22,8 +47,8 @@
         </button>
     </header>
 
-    <main style="max-width: 1000px; margin: 30px auto; padding: 0 20px;">
-        <!-- 1. Home Section[cite: 1] -->
+    <main style="max-width: 1000px; margin: 30px auto; padding: 0 20px; position: relative; z-index: 1;">
+        <!-- 1. Home Section -->
         <section id="home" class="arcade-panel">
             <h2 class="arcade-title"><i class="fa-solid fa-house"></i> HOME PAGE</h2>
             <p style="font-family: var(--font-retro); font-size: 1.4rem; color: var(--text-muted);">
@@ -31,14 +56,14 @@
             </p>
         </section>
 
-        <!-- 2. About Me Section[cite: 1] -->
+        <!-- 2. About Me Section -->
         <section id="about" class="arcade-panel">
             <h2 class="arcade-title"><i class="fa-solid fa-user"></i> ABOUT ME</h2>
             <p style="font-family: var(--font-retro); font-size: 1.3rem;">Course: BSIT - Web & Mobile Applications</p>
             <p style="font-family: var(--font-retro); font-size: 1.3rem;">Specialization: Lead Architecture & Logic</p>
         </section>
 
-        <!-- 3. Projects Section (Min. 3 Projects)[cite: 1] -->
+        <!-- 3. Projects Section (Min. 3 Projects) -->
         <section id="projects" class="arcade-panel">
             <h2 class="arcade-title"><i class="fa-solid fa-folder-open"></i> PROJECTS / PORTFOLIO</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
@@ -57,7 +82,7 @@
             </div>
         </section>
 
-        <!-- 4. Contact Section with JS Validation[cite: 1] -->
+        <!-- 4. Contact Section with JS Validation -->
         <section id="contact" class="arcade-panel">
             <h2 class="arcade-title"><i class="fa-solid fa-envelope"></i> CONTACT PAGE</h2>
             <form id="contact-form" class="arcade-form" novalidate>
@@ -82,6 +107,9 @@
             </form>
         </section>
     </main>
+
+    <!-- Kingdom Hearts 8-bit Background Script -->
+    <script src="kh-background.js"></script>
 
     <!-- Import Portfolio UI Handler Module -->
     <script type="module">

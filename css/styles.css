@@ -1,6 +1,6 @@
 :root {
     --bg-dark: #0a0a0f;
-    --panel-bg: #141420;
+    --panel-bg: #141420; 
     --border-gold: #f39c12;
     --border-metal: #4a4d52;
     --neon-yellow: #f1c40f;
@@ -12,6 +12,18 @@
     --font-retro: 'VT323', monospace;
 }
 
+/* --- Moving 8-Bit Background Canvas --- */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; 
+    pointer-events: none;
+    opacity: 0.4; 
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,7 +32,7 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-dark); 
     color: var(--text-main);
     font-family: var(--font-arcade);
     min-height: 100vh;
@@ -57,6 +69,7 @@ body {
     flex-direction: column;
     gap: 25px;
     position: relative;
+    z-index: 1; 
 }
 
 /* Header */
@@ -89,7 +102,7 @@ body {
 }
 
 .character-card {
-    background: #1c1d2a;
+    background: #1c1d2a; 
     border: 4px solid var(--border-metal);
     padding: 10px;
     text-align: center;
@@ -116,7 +129,7 @@ body {
     border-color: var(--neon-yellow);
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 0 20px var(--neon-yellow);
-    background: #282a3d;
+    background: #282a3d; 
 }
 
 .character-card.active .p1-badge {
@@ -126,7 +139,7 @@ body {
 .avatar-frame {
     width: 100%;
     aspect-ratio: 3 / 4;
-    background-color: #000;
+    background-color: #000; 
     border: 2px solid var(--border-metal);
     overflow: hidden;
     margin-bottom: 10px;
@@ -157,7 +170,7 @@ body {
 
 /* Selected Detail Panel */
 .character-detail-panel {
-    background: #0f1017;
+    background: #0f1017; 
     border: 4px solid var(--border-metal);
     padding: 20px;
 }
@@ -211,14 +224,14 @@ body {
 .stat-row {
     display: flex;
     justify-content: space-between;
-    background: #181925;
+    background: #181925; 
     padding: 6px 12px;
     border-left: 4px solid var(--neon-blue);
 }
 
 .bar-container {
     width: 50%;
-    background: #333;
+    background: #333; 
     height: 16px;
     border: 1px solid #fff;
     overflow: hidden;
@@ -287,7 +300,6 @@ body {
 
 /* --- Arcade Transition Effects for Polymorphism --- */
 
-/* Lead Student: Mission Start Flashing */
 .mission-start-overlay {
     animation: flashArcade 0.15s infinite;
 }
@@ -298,7 +310,6 @@ body {
     100% { background-color: var(--bg-dark); }
 } 
 
-/* Developer Student: Cyber Glitch & Screen Shake */
 .cyber-glitch-transition {
     animation: screenShake 0.1s infinite, glitchPulse 0.4s ease-in-out;
 }
@@ -318,7 +329,6 @@ body {
     100% { filter: hue-rotate(360deg) contrast(100%); }
 }
 
-/* Designer Student: CRT Warp & Zoom */
 .design-warp-transition {
     animation: crtWarp 0.4s forwards ease-in-out;
 }
