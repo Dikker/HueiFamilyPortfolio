@@ -21,6 +21,10 @@
     user-select: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -92,6 +96,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     padding: 25px;
     margin-bottom: 30px;
+    scroll-margin-top: 100px;
 }
 
 .arcade-title {
@@ -131,6 +136,11 @@ body {
     padding: 10px 12px;
     outline: none;
     transition: border-color 0.2s ease;
+    
+    /* Prevents horizontal overflow */
+    width: 100%;
+    max-width: 100%;
+    resize: vertical; /* Allows resizing up and down only, blocking horizontal stretching */
 }
 
 .arcade-input:focus {

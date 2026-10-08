@@ -153,7 +153,8 @@
             <a href="#home" class="nav-tab-btn active"><i class="fa-solid fa-house"></i> 01_HOME</a>
             <a href="#about" class="nav-tab-btn"><i class="fa-solid fa-user"></i> 02_ABOUT</a>
             <a href="#projects" class="nav-tab-btn"><i class="fa-solid fa-folder-open"></i> 03_MISSIONS</a>
-            <a href="#contact" class="nav-tab-btn"><i class="fa-solid fa-envelope"></i> 04_COMMS</a>
+            <a href="#video-intro" class="nav-tab-btn"><i class="fa-solid fa-video"></i> 04_VIDEO</a>
+            <a href="#contact" class="nav-tab-btn"><i class="fa-solid fa-envelope"></i> 05_COMMS</a>
         </nav>
 
         <!-- 1. Home Section -->
@@ -165,7 +166,7 @@
                     <img src="../../assets/images/pascua.jpg" alt="Benedict Pascua" onerror="this.src='https://via.placeholder.com/200x200/000/2ecc71?text=BENEDICT'">
                 </div>
                 <div>
-                    <h3 style="font-size: 1.1rem; color: var(--neon-yellow); margin-bottom: 12px;">WELCOME, PLAYER 1!</h3>
+                    <h3 style="font-size: 1.1rem; color: var(--neon-yellow); margin-bottom: 12px;">WELCOME, PLAYER 4!</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.4rem; color: var(--text-muted); line-height: 1.5;">
                         <!-- PLACEHOLDER: Insert your personal welcome message here -->
                         [INSERT YOUR WELCOME MESSAGE HERE: e.g., "Hello! I am Benedict, a web and mobile applications developer passionate about building interactive, high-performance web solutions and retro game-inspired interfaces."]
@@ -219,10 +220,10 @@
                 <!-- Project 1 -->
                 <div class="quest-card interactive-card">
                     <span class="quest-tag">MISSION 01</span>
-                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">[PROJECT TITLE 1]</h3>
+                    <h3 style="font-size: 0.85rem; color: var(--neon-yellow); margin-bottom: 8px;">Hand Sign Detector</h3>
                     <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 15px;">
                         <!-- PLACEHOLDER: Project 1 Description -->
-                        [INSERT PROJECT 1 DESCRIPTION: e.g., "A web application built using HTML, CSS, and JavaScript featuring dynamic DOM manipulation and responsive UI."]
+                        
                     </p>
                     <span style="font-size: 0.6rem; color: var(--neon-blue);">TECH: HTML5 / CSS3 / JS</span>
                 </div>
@@ -252,17 +253,80 @@
             </div>
         </section>
 
-        <!-- 4. Contact Section with JS Validation -->
-        <section id="contact" class="arcade-panel">
-            <h2 class="arcade-title" style="color: var(--neon-green);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL / CONTACT FORM</h2>
-            <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
-                Send a message directly to Benedict. All fields are verified by JavaScript client-side validation.
-            </p>
+    <!-- 04. Self-Introduction Video Section -->
+    <section id="video-intro" class="arcade-panel">
+        <h2 class="arcade-title" style="color: var(--neon-green);"><i class="fa-solid fa-video"></i> 04_VIDEO TRANSMISSION / SELF-INTRO</h2>
+        <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
+            Watch the personal transmission playback introducing Benedict's developer journey and goals.
+        </p>
 
+        <!-- Retro CRT Video Player Frame -->
+        <div style="background: var(--panel-inner); border: 3px solid var(--neon-green); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); padding: 10px; border-radius: 4px;">
+            
+            <!-- preload="auto" forces the browser to load the video data in advance for instant playback -->
+            <video controls preload="auto" playsinline style="width: 100%; max-height: 480px; display: block; background: #000; outline: none; border: 1px solid var(--border-metal);" poster="../../assets/images/pascua_thumbnail.jpg">
+                <source src="." type="video/mp4">
+                Your browser does not support the video tag or the transmission format.
+            </video>
+
+        </div>
+    </section>
+
+    <!-- 05. Comms & Contact Me Section -->
+    <section id="contact" class="arcade-panel">
+        <h2 class="arcade-title" style="color: var(--neon-green);"><i class="fa-solid fa-headset"></i> COMMS TERMINAL & CONTACT ME</h2>
+        <p style="font-family: var(--font-retro); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">
+            Establish a direct connection via social frequencies or send a transmission through the validated comms form below.
+        </p>
+
+        <!-- Social Channels Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-bottom: 25px;">
+            
+            <!-- GitHub Frequency -->
+            <a href="https://github.com/Dikker" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                <i class="fa-brands fa-github" style="font-size: 1.6rem; color: var(--neon-yellow); flex-shrink: 0;"></i>
+                <div style="min-width: 0; overflow: hidden;">
+                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">GITHUB</h4>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@Dikker</p>
+                </div>
+            </a>
+
+            <!-- Facebook Frequency -->
+            <a href="https://www.facebook.com/benedict.pascua.92" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                <i class="fa-brands fa-facebook" style="font-size: 1.6rem; color: #1877f2; flex-shrink: 0;"></i>
+                <div style="min-width: 0; overflow: hidden;">
+                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">FACEBOOK</h4>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@Benedict Pascua</p>
+                </div>
+            </a>
+
+            <!-- Instagram Frequency -->
+            <a href="https://instagram.com/bene_dikker" target="_blank" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                <i class="fa-brands fa-instagram" style="font-size: 1.6rem; color: var(--neon-red); flex-shrink: 0;"></i>
+                <div style="min-width: 0; overflow: hidden;">
+                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">INSTAGRAM</h4>
+                    <p style="font-family: var(--font-retro); font-size: 1.1rem; color: var(--text-muted); word-break: break-word;">@bene_dikker</p>
+                </div>
+            </a>
+
+            <!-- Direct Email Frequency -->
+            <a href="mailto:benedictpascua05@gmail.com" class="interactive-card" style="background: var(--panel-inner); border: 2px solid var(--border-metal); padding: 15px; text-decoration: none; display: flex; align-items: center; gap: 12px; color: var(--text-main); min-width: 0;">
+                <i class="fa-solid fa-envelope" style="font-size: 1.6rem; color: var(--neon-green); flex-shrink: 0;"></i>
+                <div style="min-width: 0; overflow: hidden;">
+                    <h4 style="font-size: 0.65rem; color: var(--neon-blue);">DIRECT EMAIL</h4>
+                    <p style="font-family: var(--font-retro); font-size: 0.95rem; color: var(--text-muted); word-break: break-all;">benedictpascua05@gmail.com</p>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Comms Transmission Form -->
+        <div style="border-top: 2px dashed var(--border-metal); padding-top: 20px;">
+            <h3 style="font-size: 0.75rem; color: var(--neon-yellow); margin-bottom: 15px;"><i class="fa-solid fa-paper-plane"></i> DIRECT TRANSMISSION FORM</h3>
             <form id="contact-form" class="arcade-form" novalidate>
                 <div class="form-group">
                     <label for="contact-name"><i class="fa-solid fa-user"></i> CALLSIGN / PLAYER NAME</label>
-                    <input type="text" id="contact-name" class="arcade-input" placeholder="Enter your name">
+                    <input type="text" id="contact-name" class="arcade-input" placeholder="Enter your full name">
                     <span class="error-message"></span>
                 </div>
 
@@ -273,16 +337,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="contact-message"><i class="fa-solid fa-comment-dots"></i> TRANSMISSION DATA</label>
-                    <textarea id="contact-message" class="arcade-input" rows="4" placeholder="Type your message here..."></textarea>
-                    <span class="error-message"></span>
-                </div>
+                <label for="contact-message"><i class="fa-solid fa-comment-dots"></i> TRANSMISSION DATA</label>
+                <textarea id="contact-message" class="arcade-input" rows="4" placeholder="Type your message here..." style="resize: vertical; max-width: 100%; width: 100%;"></textarea>
+                <span class="error-message"></span>
+            </div>
 
                 <button type="submit" class="exit-game-btn" style="background: var(--neon-green); box-shadow: 0 4px 0 #1b7a43; width: max-content;">
                     <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
                 </button>
             </form>
-        </section>
+        </div>
+    </section>
 
     </main>
 
