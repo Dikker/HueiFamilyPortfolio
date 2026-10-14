@@ -2,14 +2,14 @@ import { Project } from './classes/Project.js';
 import { LeadStudent, DeveloperStudent, DesignerStudent } from './classes/StudentRoles.js';
 import { CharacterSelectionManager } from './classes/CharacterSelectionManager.js';
 
-// Sample Projects using Project Class
+// Array: Default Projects for All Members
 const defaultProjects = [
     new Project("Web App 1", "E-Commerce Platform", "HTML/CSS/JS", "#"),
     new Project("Web App 2", "Task Management System", "JS OOP", "#"),
     new Project("Web App 3", "Portfolio Engine", "Vanilla JS", "#")
 ];
 
-// Instantiating Group Members with Subclasses
+// Objects: Team Members with Roles, Avatars, Portfolios, and Stats
 const member1 = new LeadStudent(
     1,
     "Conde, Pierre Sanjur R.",

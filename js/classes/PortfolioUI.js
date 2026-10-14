@@ -68,6 +68,7 @@ export class PortfolioUI {
         }
     }
 
+    // Events: Selecting Exit Button
     bindExitButton() {
         const exitBtns = document.querySelectorAll(".exit-game-btn");
         exitBtns.forEach(btn => {

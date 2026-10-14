@@ -1,12 +1,14 @@
 import { Student } from './Student.js';
 
+// Class: Inheritance of Student Class for Specific Roles
+
 // Subclass 1: Lead Developer
 export class LeadStudent extends Student {
     constructor(id, name, yearCourse, avatarImg, portfolioUrl, projects, stats) {
         super(id, name, yearCourse, "Lead Developer", avatarImg, portfolioUrl, projects, stats);
     }
 
-    // Polymorphic Override: Mission Start Flashing
+    // Class: Polymorphism of Opening Portfolio Animations (Flashing)
     openPortfolio() {
         document.body.classList.add("mission-start-overlay");
         setTimeout(() => {
@@ -27,7 +29,7 @@ export class DeveloperStudent extends Student {
         super(id, name, yearCourse, "Frontend Developer", avatarImg, portfolioUrl, projects, stats);
     }
 
-    // Polymorphic Override: Cyber Glitch & Screen Shake
+    // Class: Polymorphism of Opening Portfolio Animations (Glitch Shake)
     openPortfolio() {
         document.body.classList.add("cyber-glitch-transition");
         setTimeout(() => {
@@ -48,7 +50,7 @@ export class DesignerStudent extends Student {
         super(id, name, yearCourse, "UI/UX Designer", avatarImg, portfolioUrl, projects, stats);
     }
 
-    // Polymorphic Override: CRT Warp & Zoom
+    // Class: Polymorphism of Opening Portfolio Animations (Warp Zoom)
     openPortfolio() {
         document.body.classList.add("design-warp-transition");
         setTimeout(() => {

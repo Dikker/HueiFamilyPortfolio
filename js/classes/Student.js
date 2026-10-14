@@ -1,3 +1,5 @@
+// Class: Encapsulation of portfolioUrl for Porfolio Navigation (Private Field)
+
 export class Student {
     #portfolioUrl;
 

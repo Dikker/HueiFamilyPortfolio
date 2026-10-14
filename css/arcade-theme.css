@@ -4,11 +4,16 @@
     --panel-inner: #1c1d2a;
     --border-gold: #f39c12;
     --border-metal: #4a4d52;
+
     --neon-yellow: #f1c40f;
     --neon-red: #e74c3c;
     --neon-blue: #3498db;
     --neon-green: #2ecc71;
-    --neon-deep-red: #d63031;
+    --neon-deep-blue: #00838f;
+    --sonic-red: #da2428;
+    --neon-cyan: #00f0ff;
+    --neon-orange: #FF5F1F;
+
     --text-main: #ffffff;
     --text-muted: #a0a0b0;
     --font-arcade: 'Press Start 2P', monospace;

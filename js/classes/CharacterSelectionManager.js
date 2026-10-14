@@ -100,7 +100,7 @@ export class CharacterSelectionManager {
     }
 
     bindEvents() {
-        // Keyboard Navigation (Arrows / A / D / Enter)
+        // Events: Keyboard Navigation (Arrows / A / D / Enter)
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") {
                 this.navigate(1);
@@ -112,7 +112,7 @@ export class CharacterSelectionManager {
             }
         });
 
-        // Select Button
+        // Events: Selecting a Character
         if (this.selectBtn) {
             this.selectBtn.addEventListener("click", () => {
                 this.confirmSelection();
